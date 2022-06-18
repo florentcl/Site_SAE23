@@ -1,0 +1,254 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
+--
+-- Client :  localhost
+-- Généré le :  Ven 17 Juin 2022 à 19:08
+-- Version du serveur :  5.6.20
+-- Version de PHP :  5.5.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données :  `SAE23`
+--
+
+-- --------------------------------------------------------
+DROP DATABASE IF EXISTS `SAE23`;
+CREATE DATABASE IF NOT EXISTS `SAE23`;
+USE SAE23;
+
+--
+-- Structure de la table `ADMINISTRATION`
+--
+
+CREATE TABLE IF NOT EXISTS `ADMINISTRATION` (
+  `LOGIN` varchar(15) NOT NULL,
+  `PASSWD` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `ADMINISTRATION`
+--
+
+INSERT INTO `ADMINISTRATION` (`LOGIN`, `PASSWD`) VALUES
+('admin', 'passroot');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `BATIMENT`
+--
+
+CREATE TABLE IF NOT EXISTS `BATIMENT` (
+  `BAT_ID` varchar(15) NOT NULL,
+  `BAT_NOM` varchar(15) NOT NULL,
+  `GEST_NOM` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `BATIMENT`
+--
+
+INSERT INTO `BATIMENT` (`BAT_ID`, `BAT_NOM`, `GEST_NOM`) VALUES
+('1', 'RT', 'GEST_RT'),
+('2', 'INFO', 'GEST_INFO');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `CAPTEUR`
+--
+
+CREATE TABLE IF NOT EXISTS `CAPTEUR` (
+`CAPT_ID` int(5) NOT NULL,
+  `CAPT_NOM` varchar(15) NOT NULL,
+  `CAPT_TYPE` varchar(15) NOT NULL,
+  `BAT_NOM` varchar(15) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Contenu de la table `CAPTEUR`
+--
+
+INSERT INTO `CAPTEUR` (`CAPT_ID`, `CAPT_NOM`, `CAPT_TYPE`, `BAT_NOM`) VALUES
+(2, 'TE208', 'temperature', 'RT'),
+(3, 'TE104', 'temperature', 'RT'),
+(4, 'CE208', 'co2', 'RT'),
+(5, 'CE104', 'co2', 'RT'),
+(6, 'TB103', 'temperature', 'INFO'),
+(8, 'TB204', 'temperature', 'INFO'),
+(9, 'CB103', 'co2', 'INFO'),
+(10, 'CB204', 'co2', 'INFO');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `GESTIONNAIRE`
+--
+
+CREATE TABLE IF NOT EXISTS `GESTIONNAIRE` (
+  `GEST_NOM` varchar(15) NOT NULL,
+  `LOGIN` varchar(15) NOT NULL,
+  `PASSWORD` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `GESTIONNAIRE`
+--
+
+INSERT INTO `GESTIONNAIRE` (`GEST_NOM`, `LOGIN`, `PASSWORD`) VALUES
+('GEST_INFO', 'info', 'etud'),
+('GEST_RT', 'rt', 'etud');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `MESURE`
+--
+
+CREATE TABLE IF NOT EXISTS `MESURE` (
+`MES_ID` int(5) NOT NULL,
+  `MES_VAL` varchar(30) NOT NULL,
+  `MES_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CAPT_NOM` varchar(15) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1212 ;
+
+--
+-- Contenu de la table `MESURE`
+--
+
+INSERT INTO `MESURE` (`MES_ID`, `MES_VAL`, `MES_DATE`, `CAPT_NOM`) VALUES
+(1149, '362', '2022-06-13 06:26:22', 'CE104'),
+(1150, '25', '2022-06-13 06:26:24', 'TB103'),
+(1151, '744', '2022-06-13 06:26:26', 'CB103'),
+(1152, '21', '2022-06-13 06:26:28', 'TB204'),
+(1153, '529', '2022-06-13 06:26:30', 'CB204'),
+(1154, '25', '2022-06-13 06:26:42', 'TE208'),
+(1155, '568', '2022-06-13 06:26:44', 'CE208'),
+(1156, '25', '2022-06-13 06:26:46', 'TE104'),
+(1157, '309', '2022-06-13 06:26:48', 'CE104'),
+(1158, '25', '2022-06-13 06:26:50', 'TB103'),
+(1159, '645', '2022-06-13 06:26:52', 'CB103'),
+(1160, '21', '2022-06-13 06:26:54', 'TB204'),
+(1161, '473', '2022-06-13 06:26:56', 'CB204'),
+(1162, '24', '2022-06-13 06:27:08', 'TE208'),
+(1163, '698', '2022-06-13 06:28:55', 'CE208'),
+(1164, '24', '2022-06-13 06:28:57', 'TE104'),
+(1165, '367', '2022-06-13 06:28:59', 'CE104'),
+(1166, '23', '2022-06-13 06:29:01', 'TB103'),
+(1167, '668', '2022-06-13 06:29:03', 'CB103'),
+(1168, '24', '2022-06-13 06:29:05', 'TB204'),
+(1169, '583', '2022-06-13 06:29:07', 'CB204'),
+(1170, '22', '2022-06-13 06:29:19', 'TE208'),
+(1171, '758', '2022-06-13 06:29:21', 'CE208'),
+(1172, '25', '2022-06-13 06:29:23', 'TE104'),
+(1173, '464', '2022-06-13 06:29:25', 'CE104'),
+(1174, '23', '2022-06-13 06:29:27', 'TB103'),
+(1175, '574', '2022-06-13 06:29:29', 'CB103'),
+(1176, '23', '2022-06-13 06:29:31', 'TB204'),
+(1177, '663', '2022-06-13 06:29:33', 'CB204'),
+(1178, '631', '2022-06-13 06:40:14', 'CE208'),
+(1179, '20', '2022-06-13 06:40:16', 'TE104'),
+(1180, '595', '2022-06-13 06:40:18', 'CE104'),
+(1181, '23', '2022-06-13 06:40:20', 'TB103'),
+(1182, '422', '2022-06-13 06:40:22', 'CB103'),
+(1183, '18', '2022-06-13 06:40:24', 'TB204'),
+(1184, '361', '2022-06-13 06:40:26', 'CB204'),
+(1185, '23', '2022-06-13 06:40:38', 'TE208'),
+(1186, '626', '2022-06-13 06:40:40', 'CE208'),
+(1187, '19', '2022-06-13 06:40:42', 'TE104'),
+(1188, '605', '2022-06-13 06:40:44', 'CE104'),
+(1189, '22', '2022-06-13 06:40:46', 'TB103'),
+(1190, '412', '2022-06-13 06:40:48', 'CB103'),
+(1191, '19', '2022-06-13 06:40:50', 'TB204'),
+(1192, '421', '2022-06-13 06:40:52', 'CB204'),
+(1193, '23', '2022-06-13 06:41:04', 'TE208'),
+(1194, '601', '2022-06-13 06:41:06', 'CE208'),
+(1195, '20', '2022-06-13 06:41:08', 'TE104'),
+(1196, '609', '2022-06-13 06:41:10', 'CE104'),
+(1197, '22', '2022-06-13 06:41:13', 'TB103'),
+(1198, '495', '2022-06-13 06:41:15', 'CB103'),
+(1199, '18', '2022-06-13 06:41:17', 'TB204'),
+(1200, '505', '2022-06-13 06:41:19', 'CB204'),
+(1201, '24', '2022-06-13 06:41:31', 'TE208'),
+(1202, '613', '2022-06-13 06:41:33', 'CE208'),
+(1203, '21', '2022-06-13 06:41:35', 'TE104'),
+(1204, '631', '2022-06-13 06:41:37', 'CE104'),
+(1205, '22', '2022-06-13 06:41:39', 'TB103'),
+(1206, '569', '2022-06-13 06:41:41', 'CB103'),
+(1207, '19', '2022-06-13 06:41:43', 'TB204'),
+(1208, '428', '2022-06-13 06:41:45', 'CB204'),
+(1209, '25', '2022-06-13 06:41:57', 'TE208'),
+(1210, '697', '2022-06-13 06:41:59', 'CE208'),
+(1211, '21', '2022-06-13 06:42:01', 'TE104');
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `ADMINISTRATION`
+--
+ALTER TABLE `ADMINISTRATION`
+ ADD UNIQUE KEY `LOGIN` (`LOGIN`), ADD UNIQUE KEY `PASSWD` (`PASSWD`);
+
+--
+-- Index pour la table `BATIMENT`
+--
+ALTER TABLE `BATIMENT`
+ ADD PRIMARY KEY (`BAT_ID`), ADD UNIQUE KEY `BAT_NOM` (`BAT_NOM`), ADD UNIQUE KEY `ADMIN_NOM` (`GEST_NOM`);
+
+--
+-- Index pour la table `CAPTEUR`
+--
+ALTER TABLE `CAPTEUR`
+ ADD PRIMARY KEY (`CAPT_ID`), ADD UNIQUE KEY `CAPT_NOM` (`CAPT_NOM`), ADD KEY `CAPTEUR_ibfk_1` (`BAT_NOM`);
+
+--
+-- Index pour la table `GESTIONNAIRE`
+--
+ALTER TABLE `GESTIONNAIRE`
+ ADD PRIMARY KEY (`GEST_NOM`);
+
+--
+-- Index pour la table `MESURE`
+--
+ALTER TABLE `MESURE`
+ ADD PRIMARY KEY (`MES_ID`), ADD KEY `MESURE_ibfk_1` (`CAPT_NOM`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `CAPTEUR`
+--
+ALTER TABLE `CAPTEUR`
+MODIFY `CAPT_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `MESURE`
+--
+ALTER TABLE `MESURE`
+MODIFY `MES_ID` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1212;
+
+-- Contraintes pour la table `CAPTEUR`
+--
+ALTER TABLE `CAPTEUR`
+ADD CONSTRAINT `CAPTEUR_ibfk_1` FOREIGN KEY (`BAT_NOM`) REFERENCES `BATIMENT` (`BAT_NOM`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `MESURE`
+--
+ALTER TABLE `MESURE`
+ADD CONSTRAINT `MESURE_ibfk_1` FOREIGN KEY (`CAPT_NOM`) REFERENCES `CAPTEUR` (`CAPT_NOM`) ON DELETE CASCADE;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
