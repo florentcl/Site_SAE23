@@ -2,7 +2,7 @@
 
 while true
 do
-	message=`mosquitto_sub -h 192.168.108.87 -t iut/# -C 1 -v`
+	message=`mosquitto_sub -h 192.168.1.16 -t iut/# -C 1 -v`
 	valeur=$(echo $message | cut -d "/" -f 4)
 	type=$(echo $valeur | cut -d " " -f 1)
 	valeur=$(echo $valeur | cut -d " " -f 2)
@@ -45,6 +45,6 @@ do
 			fi
 		fi
 	fi
-mysql -u florent -ppassroot -h 192.168.108.87 -D SAE23 -e "Insert Into MESURE (MES_VAL, CAPT_NOM) VALUES ('$valeur', '$capteur');" 
+mysql -u florent -ppassroot -h 192.168.1.16 -D SAE23 -e "Insert Into MESURE (MES_VAL, CAPT_NOM) VALUES ('$valeur', '$capteur');" 
 
 done
