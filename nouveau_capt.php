@@ -3,7 +3,7 @@
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:login_error.php");
 ?>
-
+<!--Allows you to enter the information of the new sensor to be added-->
 <!DOCTYPE html>
 <html lang="fr">
 	<head>

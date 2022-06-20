@@ -6,8 +6,8 @@
 
 <!DOCTYPE html>
 <!--
-Programme: ajoutpiece.php
-Description: Insert dans la table Piece la nouvelle pièce
+Program: supp_capt.php.php
+Description: Deletes a sensor from the CAPTEUR table
 -->
 <html lang="fr">
 	<head>
@@ -20,7 +20,7 @@ Description: Insert dans la table Piece la nouvelle pièce
 		<section>
 			<?php
 				include("entete.html");
-				/* Accès à la base */
+				/* DATABASE access */
 				include ("SAE23.php");
 				$CAPT_NOM = $_POST['CAPT_NOM'];	
 				$requete = "DELETE FROM `CAPTEUR` WHERE `CAPT_NOM` = '$CAPT_NOM'"; 

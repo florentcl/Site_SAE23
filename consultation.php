@@ -2,14 +2,13 @@
 <html lang="fr">
  <head>
   <link rel="stylesheet" type="text/css" href="./styles/style.css" />
-  <link rel="icon" href="./images/initiales.jpg" />
   <title> Consultation </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Pour bien gérer le RWD -->
   <meta name="author" content="JG" />
   <meta name="description" content="SAÉ 23" />
   <meta name="keywords" content="HTML, CSS" />
-  <meta HTTP-EQUIV="Refresh" CONTENT="30; URL=http://192.168.228.194/Site_SAE23/consultation.php"> 
+  <meta HTTP-EQUIV="Refresh" CONTENT="30; URL=http://192.168.108.87/Site_SAE23/consultation.php"> 
  </head>
 
  <body>
@@ -18,7 +17,7 @@
    <h1>  Consultation des mesures </h1>
     <hr>
    </header>
-
+<!--Measures consultation page for all the public visiting the site -->
 	<?php
 	include ("SAE23.php");
 	$requete = " SELECT * FROM MESURE WHERE CAPT_NOM = 'CE208' ORDER BY MES_DATE DESC LIMIT 1";
@@ -86,6 +85,7 @@
 					$CB204= "$MES_VAL";
 					}
 	mysqli_close($id_bd);
+//data lookup table
 echo "
 	<table class=\"consult\">
   <tr> 

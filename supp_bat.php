@@ -6,8 +6,8 @@
 
 <!DOCTYPE html>
 <!--
-Programme: ajoutpiece.php
-Description: Insert dans la table Piece la nouvelle pièce
+Program: supp_bat.php
+Description: Deletes a building from the BATIMENT table
 -->
 <html lang="fr">
 	<head>
@@ -20,7 +20,7 @@ Description: Insert dans la table Piece la nouvelle pièce
 		<section>
 			<?php
 				include("entete.html");
-				/* Accès à la base */
+				/* database access */
 				include ("SAE23.php");
 				$BAT_NOM = $_POST['BAT_NOM'];	
 				$requete = "DELETE FROM `BATIMENT` WHERE `BAT_NOM` = '$BAT_NOM'"; 

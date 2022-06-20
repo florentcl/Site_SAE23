@@ -6,8 +6,8 @@
 
 <!DOCTYPE html>
 <!--
-Programme: ajoutpiece.php
-Description: Insert dans la table Piece la nouvelle pièce
+Program: ajout_bat.php
+Description: Insert in the BATIMENT table the new building
 -->
 <html lang="fr">
 	<head>
@@ -17,6 +17,8 @@ Description: Insert dans la table Piece la nouvelle pièce
 	</head>
 
 	<body>
+
+<!-- Allows you to add the chosen values ​​to the corresponding table -->
 		<section>
 			<?php
 				include("entete.html");

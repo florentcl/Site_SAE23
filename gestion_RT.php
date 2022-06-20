@@ -14,10 +14,6 @@
  
   <header>
    <h1>  Consultation des mesures du bâtiment RT </h1>
-    <!-- Il faut placer la balise de fermeture </header> ici pour utiliser correctement le style1.css -->
-
-   </header><!-- Il faut placer la balise de fermeture </header> ici pour utiliser correctement le style2.css -->
-  
 
 <h1> Présentation des données </h1>
 
@@ -27,7 +23,7 @@
 <?php
 include ("SAE23.php");
 
-				/* Sélection des pieces en fonction de l'interet */
+				/* election of sensors according to interest */
 				$request = "SELECT * FROM `MESURE` WHERE CAPT_NOM = 'TE104' ORDER BY MES_DATE DESC LIMIT 15";
 				$result = mysqli_query($id_bd, $request)
 					or die("Execution de la requete impossible : $request");
@@ -35,7 +31,7 @@ include ("SAE23.php");
 					echo "<th> Salle </th>";
 					echo "<th> Date et Heure </th>";
 					echo "<th> Valeurs (°C)</th>";
-				/* Affichage de la liste des pièces  */
+				/* Display of the list of the TE104 sensor with the data  */
 				while($ligne=mysqli_fetch_assoc($result))
 				 {	
 					extract($ligne);
@@ -48,7 +44,7 @@ include ("SAE23.php");
 				echo '</table>';
 
 
-				/* Sélection des pieces en fonction de l'interet */
+				/* election of sensors according to interest */
 				$request = "SELECT * FROM `MESURE` WHERE CAPT_NOM = 'CE104' ORDER BY MES_DATE DESC LIMIT 15";
 				$result = mysqli_query($id_bd, $request)
 					or die("Execution de la requete impossible : $request");
@@ -57,7 +53,7 @@ include ("SAE23.php");
 					echo "<th> Date et Heure </th>";
 					echo "<th> Valeurs (PPM)</th>";
 
-				/* Affichage de la liste des pièces  */
+				/* Display of the list of the CE104 sensor with the data  */
 				while($line=mysqli_fetch_assoc($result))
 				 {	
 					extract($line);
@@ -70,7 +66,7 @@ include ("SAE23.php");
 				echo '</table>';
 
 
-					/* Sélection des pieces en fonction de l'interet */
+					/* election of sensors according to interest */
 				$request = "SELECT * FROM `MESURE` WHERE CAPT_NOM = 'CE208' ORDER BY MES_DATE DESC LIMIT 15";
 				$result = mysqli_query($id_bd, $request)
 					or die("Execution de la requete impossible : $request");
@@ -80,7 +76,7 @@ include ("SAE23.php");
 					echo "<th> Date et Heure </th>";
 					echo "<th> Valeurs (PPM)</th>";
 
-				/* Affichage de la liste des pièces  */
+				/* Display of the list of the CE208 sensor with the data  */
 				while($line=mysqli_fetch_assoc($result))
 				 {	
 					extract($line);
@@ -93,7 +89,7 @@ include ("SAE23.php");
 				echo '</table>';
 
 
-					/* Sélection des pieces en fonction de l'interet */
+					/* election of sensors according to interest */
 				$request = "SELECT * FROM `MESURE` WHERE CAPT_NOM = 'TE208' ORDER BY MES_DATE DESC LIMIT 15";
 				$result = mysqli_query($id_bd, $request)
 					or die("Execution de la requete impossible : $request");
@@ -103,7 +99,7 @@ include ("SAE23.php");
 					echo "<th> Date et Heure </th>";
 					echo "<th> Valeurs (°C)</th>";
 
-				/* Affichage de la liste des pièces  */
+				/* Display of the list of the TE208 sensor with the data  */
 				while($line=mysqli_fetch_assoc($result))
 				 {	
 					extract($line);

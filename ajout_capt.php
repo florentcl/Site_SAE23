@@ -6,8 +6,8 @@
 
 <!DOCTYPE html>
 <!--
-Programme: ajoutpiece.php
-Description: Insert dans la table Piece la nouvelle pièce
+Program: ajout_capt.php
+Description: Insert in the CAPTEUR table the new sensor
 -->
 <html lang="fr">
 	<head>
@@ -15,7 +15,7 @@ Description: Insert dans la table Piece la nouvelle pièce
 		<title>Ajout du nouveau batiment</title>
 		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
 	</head>
-
+<!-- add the values ​​entered in the table CAPTEUR -->
 	<body>
 		<section>
 			<?php
